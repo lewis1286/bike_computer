@@ -1,0 +1,17 @@
+1. set vim for sudoedit:
+
+vim ~/.profile
+add
+    export EDITOR=vim
+source ~/.profile
+    
+2. get screen into portrait orientation:
+
+$ sudoedit /boot/config.txt
+# find "dtoverlay=pitft28r... line"
+# change rotate to "0"
+$ sudo reboot
+
+3. get touch screen to align to printed screen
+$ sudo adafruit-pitft-touch-cal 
+$ sudo reboot
