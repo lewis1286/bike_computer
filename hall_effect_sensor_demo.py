@@ -8,7 +8,7 @@
 #
 #       Hall Effect Sensor
 #
-# This script tests the sensor on GPIO17.
+# This script tests the hall effect sensors on GPIO17 and GPIO18.
 #
 # Author : Lewis Guignard
 # Date   : 27/09/2015
@@ -33,9 +33,11 @@ GPIO.setup(18 , GPIO.IN)
 
 def sensorCallback1(channel):
   # Called if sensor output goes LOW
-  timestamp = time.time()
-  stamp = datetime.datetime.fromtimestamp(timestamp).strftime('%H:%M:%S')
-  print "Sensor LOW, magnet 17 detected " + stamp
+    timestamp = time.time()
+    stamp = datetime.datetime.fromtimestamp(timestamp).strftime('%H:%M:%S')
+  # print "Sensor LOW, magnet 17 detected " + stamp
+    add speed_tick()
+
 
 def sensorCallback2(channel):
   # Called if sensor output goes HIGH
@@ -43,24 +45,27 @@ def sensorCallback2(channel):
   stamp = datetime.datetime.fromtimestamp(timestamp).strftime('%H:%M:%S')
   print "Sensor LOW, magnet 18 detected " + stamp
 
+def get speed():
+    return 0
+
 def main():
-  # Wrap main content in a try block so we can
-  # catch the user pressing CTRL-C and run the
-  # GPIO cleanup function. This will also prevent
-  # the user seeing lots of unnecessary error
-  # messages.
+    # Wrap main content in a try block so we can
+    # catch the user pressing CTRL-C and run the
+    # GPIO cleanup function. This will also prevent
+    # the user seeing lots of unnecessary error
+    # messages.
 
-  GPIO.add_event_detect(17, GPIO.FALLING, callback=sensorCallback1)
-  GPIO.add_event_detect(18, GPIO.FALLING, callback=sensorCallback2)
+    GPIO.add_event_detect(17, GPIO.FALLING, callback=sensorCallback1)
+    GPIO.add_event_detect(18, GPIO.FALLING, callback=sensorCallback2)
 
-  try:
+    try:
     # Loop until users quits with CTRL-C
     while True :
-      time.sleep(0.1)
+        time.sleep(0.1)
 
-  except KeyboardInterrupt:
+    except KeyboardInterrupt:
     # Reset GPIO settings
     GPIO.cleanup()
 
 if __name__=="__main__":
-   main()
+    main()
