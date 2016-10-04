@@ -55,6 +55,8 @@ def message_to_screen(msg, color, item):
 
  #pygame.display.update()
 
+gameExit = False
+
 def check_which_button(x, y):
     # check which button was pressed.  returns number of button
     if button_1_dims[0] <= x <= button_1_dims[0] + button_1_dims[2] and \
@@ -68,6 +70,8 @@ def check_which_button(x, y):
     elif button_2_dims[0] <= x <= button_2_dims[0] + button_2_dims[2] and \
             button_2_dims[1] <= y <= button_2_dims[1] + button_2_dims[3]:
         print 'you pressed button 2'
+        gameExit = True
+        quit()
         pygame.draw.rect(gameDisplay, black, button_2_dims)
         return 2
 
@@ -79,7 +83,6 @@ def check_which_button(x, y):
     else:
         return 0
 
-gameExit = False
 
 while not gameExit:
     for event in pygame.event.get():
