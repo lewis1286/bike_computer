@@ -23,6 +23,8 @@ pygame.display.update()
 
 font_big = pygame.font.Font(None, 100)
 
+count = 0
+
 while True:
     # Scan the buttons
     for (k,v) in button_map.items():
@@ -32,4 +34,6 @@ while True:
             rect = text_surface.get_rect(center=(160,120))
             lcd.blit(text_surface, rect)
             pygame.display.update()
+    count += 1
+    if count == 100
     sleep(0.1)
