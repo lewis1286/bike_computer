@@ -27,13 +27,14 @@ font3 = pygame.font.SysFont(None, FONT_SIZE + 30)
 
 # initialize display window
 gameDisplay = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption('slither')
+pygame.display.set_caption('bike_ui')
 
 # Colors (from hex code AF1224 colorscheme)
 white = ((218, 242, 239))
 black = ((43, 43, 43))
 red = ((175, 18, 36))
 teal = ((63, 127, 120))
+
 
 def message_to_screen(msg, color, item):
     if item == "button_1":
@@ -43,17 +44,17 @@ def message_to_screen(msg, color, item):
         screen_text = pygame.transform.rotozoom(font2.render(msg, True, color), 270, 1)
         location = [SCREEN_WIDTH - 3 * MARGIN, MARGIN]
     elif item == "speed_val":
-       screen_text = pygame.transform.rotozoom(font3.render(msg, True, color), 270, 1)
-       location = [SCREEN_WIDTH - 3 * MARGIN - BUTTON_HEIGHT, MARGIN]
+        screen_text = pygame.transform.rotozoom(font3.render(msg, True, color), 270, 1)
+        location = [SCREEN_WIDTH - 3 * MARGIN - BUTTON_HEIGHT, MARGIN]
     elif item == "cadence":
-       screen_text = pygame.transform.rotozoom(font2.render(msg, True, color), 270, 1)
-       location = [SCREEN_WIDTH - 5 * MARGIN - BUTTON_HEIGHT, MARGIN]
+        screen_text = pygame.transform.rotozoom(font2.render(msg, True, color), 270, 1)
+        location = [SCREEN_WIDTH - 5 * MARGIN - BUTTON_HEIGHT, MARGIN]
     elif item == "cadence_val":
-       screen_text = pygame.transform.rotozoom(font3.render(msg, True, color), 270, 1)
-       location = [SCREEN_WIDTH - 5 * MARGIN - 2 * BUTTON_HEIGHT, MARGIN]
+        screen_text = pygame.transform.rotozoom(font3.render(msg, True, color), 270, 1)
+        location = [SCREEN_WIDTH - 5 * MARGIN - 2 * BUTTON_HEIGHT, MARGIN]
     gameDisplay.blit(screen_text, location)
 
- #pygame.display.update()
+# pygame.display.update()
 
 gameExit = False
 
@@ -83,17 +84,19 @@ def check_which_button(x, y):
     else:
         return 0
 
-
+count = 0
 while not gameExit:
     for event in pygame.event.get():
         # print event
         if event.type == pygame.QUIT:
-            gameExit = True
+            pass
+            # gameExit = True
         if event.type == pygame.MOUSEBUTTONDOWN:
             # print 'mouse pressed', event.pos
-            x, y = event.pos
-            button_pressed = check_which_button(x, y)
-    # white slate clean
+            pass
+            # x, y = event.pos
+            # button_pressed = check_which_button(x, y)
+    # #wipe slate clean
     gameDisplay.fill(white)
 
     # do rendering of new graphics
@@ -109,6 +112,10 @@ while not gameExit:
     message_to_screen('XX.XXX', teal, 'cadence_val')
 
     pygame.display.update()
+    time.sleep(0.1)
+    count += 1
+    if count == 100:
+        gameExit = True
 
 pygame.quit()
 # quit
