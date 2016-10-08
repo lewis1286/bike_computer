@@ -78,8 +78,8 @@ def check_which_button(x, y):
     elif button_2_dims[0] <= x <= button_2_dims[0] + button_2_dims[2] and \
             button_2_dims[1] <= y <= button_2_dims[1] + button_2_dims[3]:
         print 'you pressed button 2'
-        gameExit = True
-        quit()
+        # gameExit = True
+        # quit()
         pygame.draw.rect(gameDisplay, black, button_2_dims)
         return 2
 
