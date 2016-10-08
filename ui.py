@@ -101,15 +101,15 @@ while not gameExit:
 
     # do rendering of new graphics
     # [left, top, width, height]
-    button_1 = pygame.draw.rect(gameDisplay, red, button_1_dims)
-    button_2 = pygame.draw.rect(gameDisplay, red, button_2_dims)
-    button_3 = pygame.draw.rect(gameDisplay, red, button_3_dims)
+    # button_1 = pygame.draw.rect(gameDisplay, red, button_1_dims)
+    # button_2 = pygame.draw.rect(gameDisplay, red, button_2_dims)
+    # button_3 = pygame.draw.rect(gameDisplay, red, button_3_dims)
 
-    # put speed and cadence to screen
-    message_to_screen('Current Speed', teal, 'speed')
-    message_to_screen('XX.XXX', teal, 'speed_val')
-    message_to_screen('Current Cadence', teal, 'cadence')
-    message_to_screen('XX.XXX', teal, 'cadence_val')
+    # # put speed and cadence to screen
+    # message_to_screen('Current Speed', teal, 'speed')
+    # message_to_screen('XX.XXX', teal, 'speed_val')
+    # message_to_screen('Current Cadence', teal, 'cadence')
+    # message_to_screen('XX.XXX', teal, 'cadence_val')
 
     pygame.display.update()
     time.sleep(0.1)
