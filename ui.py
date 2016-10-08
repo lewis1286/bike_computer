@@ -116,7 +116,7 @@ while not gameExit:
     pygame.display.update()
     time.sleep(0.1)
     count += 1
-    if count == 100:
+    if count == 500:
         gameExit = True
 
 pygame.quit()
