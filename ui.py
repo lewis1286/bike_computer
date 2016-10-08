@@ -95,12 +95,12 @@ while not gameExit:
         # print event
         if event.type == pygame.QUIT:
             pass
-            # gameExit = True
+            gameExit = True
         if event.type == pygame.MOUSEBUTTONDOWN:
             # print 'mouse pressed', event.pos
             pass
-            # x, y = event.pos
-            # button_pressed = check_which_button(x, y)
+            x, y = event.pos
+            button_pressed = check_which_button(x, y)
     # #wipe slate clean
     gameDisplay.fill(white)
 
