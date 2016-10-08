@@ -20,6 +20,9 @@ button_3_dims = [MARGIN, 3 * MARGIN + 2 * BUTTON_WIDTH,
                  BUTTON_HEIGHT, BUTTON_WIDTH]
 
 os.putenv('SDL_FBDEV', '/dev/fb1')
+os.putenv('SDL_MOUSEDEV', 'TSLIB')
+os.putenv('SDL_MOUSEDEV', '/dev/input/touchscreen')
+
 pygame.init()
 
 font1 = pygame.font.SysFont(None, FONT_SIZE)
