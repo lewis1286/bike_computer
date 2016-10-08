@@ -4,7 +4,7 @@ from time import sleep
 # import RPi.GPIO as GPIO
 
 #Note #21 changed to #27 for rev2 Pi
-# button_map = {23:(255,0,0), 22:(0,255,0), 27:(0,0,255), 18:(0,0,0)}
+button_map = {23:(255,0,0), 22:(0,255,0), 27:(0,0,255), 18:(0,0,0)}
 
 #Setup the GPIOs as inputs with Pull Ups since the buttons are connected to GND
 # GPIO.setmode(GPIO.BCM)
@@ -31,8 +31,11 @@ count = 0
 
 while True:
     # Scan the buttons
+    for event in pygame.event.get():
+        print event
     # for (k,v) in button_map.items():
-        # # if GPIO.input(k) == False:
+        # print k, v
+        # if GPIO.input(k) == False:
             # lcd.fill(v)
             # text_surface = font_big.render('%d'%k, True, WHITE)
             # rect = text_surface.get_rect(center=(160,120))
