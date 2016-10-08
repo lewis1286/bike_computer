@@ -3,6 +3,7 @@
 
 import pygame
 import time
+import os
 
 # Globals
 MARGIN = 15
@@ -18,6 +19,7 @@ button_2_dims = [MARGIN, 2 * MARGIN + BUTTON_HEIGHT,
 button_3_dims = [MARGIN, 3 * MARGIN + 2 * BUTTON_WIDTH,
                  BUTTON_HEIGHT, BUTTON_WIDTH]
 
+os.putenv('SDL_FBDEV', '/dev/fb1')
 pygame.init()
 
 font1 = pygame.font.SysFont(None, FONT_SIZE)
