@@ -1,6 +1,7 @@
 import pygame
 import os
 from time import sleep
+import random
 # import RPi.GPIO as GPIO
 
 #Note #21 changed to #27 for rev2 Pi
@@ -17,6 +18,7 @@ black = (43, 43, 43)
 red = (175, 18, 36)
 teal = (63, 127, 120)
 
+colors = [white, black, red, teal]
 
 os.putenv('SDL_FBDEV', '/dev/fb1')
 pygame.init()
@@ -28,11 +30,14 @@ pygame.display.update()
 font_big = pygame.font.Font(None, 100)
 
 count = 0
-
+events = []
 while True:
     # Scan the buttons
     for event in pygame.event.get():
-        print event
+        # events += str(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            lcd.fill(random.choice(colors))
+            pygame.display.update()
     # for (k,v) in button_map.items():
         # print k, v
         # if GPIO.input(k) == False:
@@ -43,5 +48,6 @@ while True:
             # pygame.display.update()
     count += 1
     if count == 100:
+        # print events
         quit()
     sleep(0.1)
