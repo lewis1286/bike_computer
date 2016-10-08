@@ -11,8 +11,12 @@ from time import sleep
 # for k in button_map.keys():
     # GPIO.setup(k, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-#Colours
-WHITE = (255,255,255)
+# Colors (from hex code AF1224 colorscheme)
+white = (218, 242, 239)
+black = (43, 43, 43)
+red = (175, 18, 36)
+teal = (63, 127, 120)
+
 
 os.putenv('SDL_FBDEV', '/dev/fb1')
 pygame.init()

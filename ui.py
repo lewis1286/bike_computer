@@ -30,10 +30,10 @@ gameDisplay = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption('bike_ui')
 
 # Colors (from hex code AF1224 colorscheme)
-white = ((218, 242, 239))
-black = ((43, 43, 43))
-red = ((175, 18, 36))
-teal = ((63, 127, 120))
+white = (218, 242, 239)
+black = (43, 43, 43)
+red = (175, 18, 36)
+teal = (63, 127, 120)
 
 
 def message_to_screen(msg, color, item):
