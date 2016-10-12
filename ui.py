@@ -4,6 +4,9 @@
 import pygame
 import time
 import os
+import subprocess
+
+
 
 # Globals
 MARGIN = 15
@@ -19,11 +22,11 @@ button_2_dims = [MARGIN, 2 * MARGIN + BUTTON_HEIGHT,
 button_3_dims = [MARGIN, 3 * MARGIN + 2 * BUTTON_WIDTH,
                  BUTTON_HEIGHT, BUTTON_WIDTH]
 
-
-os.putenv('SDL_VIDEODRIVER', 'fbcon')
-os.putenv('SDL_FBDEV', '/dev/fb1')
-os.putenv('SDL_MOUSEDEV', 'TSLIB')
-os.putenv('SDL_MOUSEDEV', '/dev/input/touchscreen')
+if subprocess.check_output("whoami", shell=True).rstrip() == 'pi':
+    os.putenv('SDL_VIDEODRIVER', 'fbcon')
+    os.putenv('SDL_FBDEV', '/dev/fb1')
+    os.putenv('SDL_MOUSEDEV', 'TSLIB')
+    os.putenv('SDL_MOUSEDEV', '/dev/input/touchscreen')
 
 pygame.init()
 
@@ -93,6 +96,7 @@ gameExit = False
 
 count = 0
 while not gameExit:
+    gameDisplay.fill(white)
     for event in pygame.event.get():
         # print event
         if event.type == pygame.QUIT:
@@ -101,10 +105,10 @@ while not gameExit:
         if event.type == pygame.MOUSEBUTTONDOWN:
             # print 'mouse pressed', event.pos
             pass
-            x, y = event.pos
+            gameDisplay.fill(red)
+            # x, y = event.pos
             # button_pressed = check_which_button(x, y)
     # #wipe slate clean
-    gameDisplay.fill(white)
 
     # do rendering of new graphics
     # [left, top, width, height]
@@ -119,7 +123,7 @@ while not gameExit:
     message_to_screen('XX.XXX', teal, 'cadence_val')
 
     pygame.display.update()
-    time.sleep(0.1)
+    time.sleep(0.4)
     count += 1
     if count == 500:
         gameExit = True
