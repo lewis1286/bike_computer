@@ -5,7 +5,7 @@ import pygame
 import time
 import os
 import subprocess
-
+from displays import metrics
 
 
 # Globals
@@ -64,35 +64,8 @@ def message_to_screen(msg, color, item):
         location = [SCREEN_WIDTH - 5 * MARGIN - 2 * BUTTON_HEIGHT, MARGIN]
     gameDisplay.blit(screen_text, location)
 
-# pygame.display.update()
-
 gameExit = False
-
-# def check_which_button(x, y):
-    # # check which button was pressed.  returns number of button
-    # if button_1_dims[0] <= x <= button_1_dims[0] + button_1_dims[2] and \
-            # button_1_dims[1] <= y <= button_1_dims[1] + button_1_dims[3]:
-        # # print 'you pressed button 1'
-        # message_to_screen('1', black, 'button_1')
-        # pygame.display.update()
-        # time.sleep(1)
-        # pygame.draw.rect(gameDisplay, black, button_1_dims)
-        # return 1
-    # elif button_2_dims[0] <= x <= button_2_dims[0] + button_2_dims[2] and \
-            # button_2_dims[1] <= y <= button_2_dims[1] + button_2_dims[3]:
-        # print 'you pressed button 2'
-        # # gameExit = True
-        # # quit()
-        # pygame.draw.rect(gameDisplay, black, button_2_dims)
-        # return 2
-
-    # elif button_3_dims[0] <= x <= button_3_dims[0] + button_3_dims[2] and \
-            # button_3_dims[1] <= y <= button_3_dims[1] + button_3_dims[3]:
-        # print 'you pressed button 3'
-        # pygame.draw.rect(gameDisplay, black, button_3_dims)
-        # return 3
-    # else:
-        # return 0
+bike_metrics = metrics()
 
 count = 0
 while not gameExit:
@@ -103,18 +76,12 @@ while not gameExit:
             pass
             gameExit = True
         if event.type == pygame.MOUSEBUTTONDOWN:
-            # print 'mouse pressed', event.pos
             pass
             gameDisplay.fill(red)
-            # x, y = event.pos
-            # button_pressed = check_which_button(x, y)
+            # bike_metrics.make_screen()
     # #wipe slate clean
 
     # do rendering of new graphics
-    # [left, top, width, height]
-    # button_1 = pygame.draw.rect(gameDisplay, red, button_1_dims)
-    # button_2 = pygame.draw.rect(gameDisplay, red, button_2_dims)
-    # button_3 = pygame.draw.rect(gameDisplay, red, button_3_dims)
 
     # put speed and cadence to screen
     message_to_screen('Current Speed', teal, 'speed')
