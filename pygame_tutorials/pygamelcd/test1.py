@@ -9,7 +9,7 @@ from time import sleep
 
 os.putenv('SDL_FBDEV', '/dev/fb1')
 pygame.init()
-lcd = pygame.display.set_mode((240, 320))
+lcd = pygame.display.set_mode((320, 240))
 pygame.mouse.set_visible(False)
 
 lcd.fill((255,0,0))
@@ -22,3 +22,4 @@ sleep(1)
 
 lcd.fill((0,0,0))
 pygame.display.update()
+pygame.quit()
