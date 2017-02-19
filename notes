@@ -1,0 +1,51 @@
+############### devices ##################
+https://learn.adafruit.com/lsm303-accelerometer-slash-compass-breakout/assembly-and-wiring
+https://www.adafruit.com/products/1893
+
+
+
+############### i2c ###################
+https://oscarliang.com/raspberry-pi-arduino-connected-i2c/
+
+linux kernel documentation to smbus protocol:
+https://www.kernel.org/doc/Documentation/i2c/smbus-protocol
+https://www.kernel.org/doc/Documentation/i2c/dev-interface
+
+turn on i2c on rpi:
+sudo raspi-config
+(enable i2c), reboot
+
+sudo apt-get install i2c-tools
+
+sudo i2cdetect -y 1  # lists what addresses of i2c devieces are on bus 1
+
+$: ls /dev/i2c-*
+
+python: import smbus - weaker package
+sudo apt-get install python-smbus
+https://github.com/groeck/i2c-tools
+
+
+
+
+ToDo:
+
+1.	layout components
+	a.	sort out communication
+		i.	components --> arduino
+		ii.	arduino --> raspberry pi
+
+	b.	sort out power
+		i.	switches
+		ii.	routing
+
+2.	assembly
+	a.	solder components
+	b.	order enclosure
+		* recall ability to add camera back later
+
+3.	programming
+	a.  database (mysql)
+	b.	ui
+	c.	twitter
+	d.	post to diffusecreation.com

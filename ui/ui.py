@@ -159,4 +159,3 @@ while not gameExit:
         GPIO.cleanup()
 
 pygame.quit()
-
