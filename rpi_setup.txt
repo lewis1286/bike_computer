@@ -4,7 +4,7 @@ vim ~/.profile
 add
     export EDITOR=vim
 source ~/.profile
-    
+
 2. get screen into portrait orientation:
 
 $ sudoedit /boot/config.txt
@@ -13,5 +13,9 @@ $ sudoedit /boot/config.txt
 $ sudo reboot
 
 3. get touch screen to align to printed screen
-$ sudo adafruit-pitft-touch-cal 
+$ sudo adafruit-pitft-touch-cal
 $ sudo reboot
+
+####### running program:  ##########
+call power_switch.py and ui.py in /etc/rc.local so they run at boot
+

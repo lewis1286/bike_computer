@@ -3,12 +3,13 @@
 import time
 import datetime
 
+
 class Wheel():
     ticks = 0
     ride_start_time = time.time()
     last_tick_time = time.time()
     this_tick_time = time.time()
-    circumference = .001366 # 700pi converted to miles
+    circumference = .001366  # 700pi converted to miles
 
     def increment(self):
         self.ticks += 1
@@ -28,7 +29,8 @@ class Wheel():
         return self.ticks
 
     def total_time(self):
-        return str(datetime.timedelta(seconds = int(time.time() - self.ride_start_time)))
+        return str(datetime.timedelta(seconds=int(time.time() - self.ride_start_time)))
+
 
 class Cadence():
     ticks = 0

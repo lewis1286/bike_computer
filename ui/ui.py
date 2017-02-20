@@ -12,11 +12,13 @@ from objects import *
 
 ###########################   GPIO setup ###############################
 # Tell GPIO library to use GPIO references
+HALL_SPEED = 18
+HALL_CADENCE = 23
 GPIO.setmode(GPIO.BCM)
 # print "Setup GPIO pin as input"
 # Set Switch GPIO as input
-GPIO.setup(17 , GPIO.IN)
-GPIO.setup(22 , GPIO.IN)
+GPIO.setup(HALL_SPEED , GPIO.IN)
+GPIO.setup(HALL_CADENCE , GPIO.IN)
 ##############################################################
 
 
@@ -87,8 +89,8 @@ def sensorCallback2(channel):
     # print "Sensor LOW, magnet 22 detected " + stamp
 
 
-GPIO.add_event_detect(17, GPIO.FALLING, callback=sensorCallback1)
-GPIO.add_event_detect(22, GPIO.FALLING, callback=sensorCallback2)
+GPIO.add_event_detect(HALL_SPEED, GPIO.FALLING, callback=sensorCallback1)
+GPIO.add_event_detect(HALL_CADENCE, GPIO.FALLING, callback=sensorCallback2)
 
 
 def message_to_screen(msg, color, item):
@@ -130,11 +132,12 @@ while not gameExit:
         if event.type == pygame.QUIT:
             gameExit = True
         if event.type == pygame.MOUSEBUTTONDOWN:
-            if background == white:
-                background = red
-            else:
-                background = white
-            gameDisplay.fill(background)
+            gameExit = True
+            # if background == white:
+                # background = red
+            # else:
+                # background = white
+            # gameDisplay.fill(background)
     # #wipe slate clean
 
     # do rendering of new graphics
@@ -152,11 +155,10 @@ while not gameExit:
 
     pygame.display.update()
     time.sleep(0.1)
-    count += 1
-    if count == 300:
-        gameExit = True
+    # count += 1
+    # if count == 100:
+        # gameExit = True
         # reset GPIO settings
-        GPIO.cleanup()
-
+GPIO.cleanup()
 pygame.quit()
 
