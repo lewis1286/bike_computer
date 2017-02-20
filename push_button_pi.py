@@ -13,4 +13,3 @@ while True:
     if input_state == False:
         print('Steph is so hot')
         time.sleep(0.2)
-

@@ -161,4 +161,3 @@ while not gameExit:
         # reset GPIO settings
 GPIO.cleanup()
 pygame.quit()
-
